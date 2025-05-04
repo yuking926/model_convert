@@ -17,7 +17,7 @@ jobs:
         runs-on: [ubuntu-22.04]
     runs-on: ${{ matrix.runs-on }}
     container:
-      image: ultralytics/ultralytics:8.3.92-cpu
+      image: ultralytics/ultralytics:8.3.107-cpu
       options: --privileged
 
     steps:
@@ -34,7 +34,7 @@ jobs:
         cd yolo
         mkdir -pv onnx
         cd onnx
-        wget https://github.com/yuking926/model_convert/blob/master/xiaosai.pt -O yolo.pt
+        wget https://github.com/yuking926/model_convert/raw/master/xiaosai.pt -O yolo.pt
         python ../export_det_v11.pyc -w yolo.pt --sim
 
     - name: Upload artifact
